@@ -1,0 +1,97 @@
+<head>
+  <title>test</title>
+</head>
+
+<body>
+  {{> time_sys}}
+
+</body>
+
+<template name="time_sys">
+
+  <a href="/worklog">worklog list</a>
+
+  <form id="data_form">
+
+ 
+  <div >
+    <label >username : </label>
+    <input type="text" id="user" placeholder="Enter name" name="user">
+</div>
+<div >
+    <label >Hours :</label>
+    <input type="text" id="hours" placeholder="Add hours" name="hours">
+</div>
+<div >
+  <label >Note :</label>
+  <input type="text" id="note" placeholder="Add Note" name="note">
+</div>
+<input type="button" class="submit" value="Submit" id=""  />
+
+</form>
+{{> worklog}}
+</template>
+
+
+<template name="worklog">
+
+  <div class="card">
+      <table>
+              <thead>
+                  <!--begin::Table row-->
+                  <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+  
+  <!-- <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Customer Name: activate to sort column ascending" style="width: 134.109px;">Name</th> -->
+  
+  <!-- <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 206.391px;">User</th> -->
+  <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 170.156px;">Equipment</th>
+  <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 170.156px;">Project</th>
+  <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 170.156px;">From Date</th>
+  <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 170.156px;">To Date</th>
+  <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 206.391px;">Status</th>
+  <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 206.391px;">Remark</th>
+  
+  
+  <!-- <th class="min-w-125px sorting" tabindex="0" aria-controls="kt_customers_table" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 170.156px;">Created Date</th> -->
+  
+  
+  </tr>
+              </thead>
+
+              <tbody class="fw-bold text-gray-600">
+  {{#each user}}
+
+              <tr class="odd">
+  
+                      <td>
+                          <span href="#" class="text-gray-600 text-hover-primary mb-1">{{splitByComma eqp_name}}</span>
+                      </td>
+                      <td>
+                          <span href="#" class="text-gray-600 text-hover-primary mb-1">{{splitByComma proj_name}}</span>
+                      </td>
+                     
+                      <td data-order="2020-12-14T20:43:00+05:30">{{formatted_datetime ist_start_date}}</td>
+                    
+  
+                      <td data-order="2020-12-14T20:43:00+05:30">{{formatted_datetime ist_end_date}}</td>
+  
+                     
+                      <td>
+                          <a  class="text-gray-800 text-hover-primary mb-1">{{remark}}</a>
+                      </td>
+                    
+                  </tr>
+  {{/each}} 
+
+  
+  
+  </tbody>
+          </table>
+  
+  </div>
+  
+  
+ 
+
+
+</template>
